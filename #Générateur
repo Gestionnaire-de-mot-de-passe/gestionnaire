@@ -1,0 +1,58 @@
+#Générateur
+import random
+
+
+def minuscules (totalcar):
+    return int(totalcar)*int(40)/100
+
+def majuscules (totalcar):
+    return int(totalcar)*int(40)/100
+
+def chiffres (totalcar):
+    return int(totalcar)*int(10)/100
+
+def spe (totalcar):
+    return int(totalcar)*int(10)/100
+
+nbr = int(input("Entrez le nombre de caractères : "))
+
+result = minuscules (nbr), majuscules (nbr), chiffres (nbr), spe(nbr)
+print(result)
+
+result1 = int(minuscules(nbr))
+result2 = int(majuscules(nbr))
+result3 = int(chiffres(nbr))
+result4 = int(spe(nbr))
+
+
+lettres_maj = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+lettres_min = "abcdefghijklmnopqrstuvwxyz"
+csp = "+-*/&?!"
+chiffres = "0123456789"
+
+password = ""
+
+
+for i in range (result1): password = password + lettres_maj[random.randint(0, len(lettres_maj) - 1)]
+
+for i in range (result2): password = password + lettres_min[random.randint(0, len(lettres_min) - 1)]
+
+for i in range (result3): password = password + csp[random.randint(0, len(csp) - 1)]
+
+for i in range (result4): password = password + chiffres[random.randint(0, len(chiffres) - 1)]
+
+pa = list(password)
+random.shuffle(pa)
+
+password_height = len(password)
+
+if password_height < 20 :
+    print ("Le mot de passe doit contenir au moins 20 caractères ")
+
+
+else :
+
+    print ("Votre mot de passe est le suivant : ")
+    print("".join(pa))
+
+
